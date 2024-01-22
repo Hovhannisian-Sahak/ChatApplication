@@ -36,6 +36,7 @@ const login = async (req, res) => {
       return res.status(500).json({ message: "User password not set." });
     }
     const success = await bcrypt.compare(password, users[0].hashedPassword);
+    console.log(password, users[0]);
     console.log(success);
     const token = serverClient.createUserToken(users[0].id);
     if (success) {
